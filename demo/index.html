@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lightbox Demo</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				padding: 20px;
+				background-color: #f0f0f0;
+			}
+
+			h1 {
+				color: #333;
+				text-align: center;
+			}
+
+			.demo-container {
+				max-width: 600px;
+				margin: 0 auto;
+				background: white;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+
+			lightbox {
+				margin: 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo-container">
+			<h1>Lightbox Component Demo</h1>
+			<p>This demonstrates the lightbox web component in action:</p>
+			<pion-lightbox></pion-lightbox>
+			<p>
+				The component renders "Hello World!" with a beautiful gradient
+				background.
+			</p>
+		</div>
+
+		<script type="module" src="./lightbox.js"></script>
+	</body>
+</html>
