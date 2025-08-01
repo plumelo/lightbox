@@ -1,35 +1,71 @@
-import { component, html } from '@pionjs/pion';
+import { html, component } from '@pionjs/pion';
+import styles from './lightbox.css';
+import type { Viewable, Props } from './types';
+import useLightbox from './hooks/useLightbox';
+import { clearIcon } from './components/icons';
 
-const Lightbox = () => html`
-	<style>
-		:host {
-			display: block;
-			padding: 20px;
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			color: white;
-			border-radius: 8px;
-			text-align: center;
-			font-family: Arial, sans-serif;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		}
+const Lightbox = (props: Props) => {
+	const { slide, close } = useLightbox(props);
 
-		.message {
-			font-size: 24px;
-			font-weight: bold;
-			margin: 0;
-		}
+	return html`
+		<style>
+			${styles}
+		</style>
 
-		.subtitle {
-			font-size: 14px;
-			opacity: 0.8;
-			margin-top: 8px;
-		}
-	</style>
-	<div class="message">Hello World!</div>
-	<div class="subtitle">Welcome to the Lightbox component</div>
-`;
+		<cosmoz-slider .slide=${slide}></cosmoz-slider>
 
-customElements.define(
-	'pion-lightbox',
-	component(Lightbox, { useShadowDOM: true }),
-);
+		<button class="close" @click=${close} aria-label="Close lightbox">
+			${clearIcon()}
+		</button>
+	`;
+};
+
+// Define the custom element
+customElements.define('pion-lightbox', component<Props>(Lightbox));
+
+// Utility function to determine viewable type from filename
+export const viewableType = (filename: string): Viewable['type'] | null => {
+	const ext = filename.split('.').pop()?.toLowerCase();
+
+	if (ext === 'pdf') return 'pdf';
+	if (
+		['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'bmp', 'tiff'].includes(ext!)
+	)
+		return 'image';
+	if (
+		[
+			'xml',
+			'json',
+			'js',
+			'ts',
+			'html',
+			'css',
+			'txt',
+			'md',
+			'py',
+			'java',
+			'cpp',
+			'c',
+			'php',
+			'rb',
+			'go',
+			'rs',
+			'swift',
+		].includes(ext!)
+	)
+		return 'code';
+	// Default to 'image' or another valid Viewable['type'] value
+	return null;
+};
+
+// Factory function to create a lightbox instance
+export const lightbox = (props: Props) =>
+	html`<pion-lightbox
+		.items=${props.items}
+		.selected=${props.selected}
+		.close=${props.close}
+	></pion-lightbox>`;
+
+// Export types for external use
+export type { Viewable, Image, Pdf, Code } from './types';
+export type LightboxProps = Props;

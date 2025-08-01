@@ -5,7 +5,7 @@ A modern lightbox web component built with [Pion.js](https://github.com/pionjs/p
 ## Installation
 
 ```bash
-npm install @neovici/lightbox
+npm install @plumelo/lightbox
 ```
 
 ## Usage

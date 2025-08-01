@@ -1,16 +1,47 @@
 import { html } from '@pionjs/pion';
-import '../src/index.js';
+import '../demo/demo-image-gallery.js';
+import '../demo/demo-single-image.js';
+import '../demo/demo-mixed-lightbox.js';
 
 export default {
 	title: 'Lightbox',
-	component: 'lightbox',
+	tags: ['autodocs'],
 };
 
-export const BasicLightbox = () => html`<pion-lightbox></pion-lightbox>`;
-BasicLightbox.parameters = {
+export const ImageGallery = () => {
+	return html`<demo-image-gallery></demo-image-gallery>`;
+};
+
+ImageGallery.parameters = {
 	docs: {
 		description: {
-			story: 'The basic version of Lightbox showing hello world',
+			story:
+				'A lightbox showing multiple images that can be navigated using arrow keys or navigation buttons.',
+		},
+	},
+};
+
+export const SingleImage = () => {
+	return html`<demo-single-image></demo-single-image>`;
+};
+
+SingleImage.parameters = {
+	docs: {
+		description: {
+			story: 'A lightbox displaying a single image with no navigation arrows.',
+		},
+	},
+};
+
+export const MixedContent = () => {
+	return html`<demo-mixed-lightbox></demo-mixed-lightbox>`;
+};
+
+MixedContent.parameters = {
+	docs: {
+		description: {
+			story:
+				'A lightbox showcasing different content types: images, pdf and code.',
 		},
 	},
 };
