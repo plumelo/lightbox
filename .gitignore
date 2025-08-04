@@ -3,3 +3,5 @@ coverage
 dist
 /storybook-static/
 .eslintcache
+open-wc-testing-cheat-sheet.md
+lit-html-3.0-cheat-sheet.md
