@@ -7,6 +7,7 @@ const code$ = (uri: string) => fetch(uri).then((r) => r.text());
 
 export const code = (c: Code) => {
 	const uri = uri$(c.uri).then(code$);
+
 	return html`
 		<div class="viewable code" ?data-loaded=${loaded$(uri)}>
 			<pre class="code-content" data-language=${c.language || 'text'}>

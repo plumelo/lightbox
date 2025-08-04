@@ -14,20 +14,10 @@ export const MixedContent = () => {
 		{
 			id: '2',
 			type: 'code',
-			uri: () =>
-				Promise.resolve(`{
-  "name": "@plumelo/lightbox",
-  "version": "1.0.0",
-  "description": "A lightbox component for various content types",
-  "main": "dist/index.js",
-  "dependencies": {
-	"@pionjs/pion": "^2.5.2",
-	"@neovici/cosmoz-slider": "latest"
-  }
-}`),
-			filename: 'package.json',
-			title: 'Package Configuration',
-			language: 'json',
+			uri: 'https://icanhazdadjoke.com/',
+			filename: 'file.html',
+			title: 'Html Page',
+			language: 'html',
 		},
 		{
 			id: '3',

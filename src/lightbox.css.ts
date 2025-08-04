@@ -121,6 +121,13 @@ export default css`
 		border-radius: 4px;
 	}
 
+	.viewable.image::before {
+		place-content: center;
+		display: grid;
+		height: 100%;
+		width: 100%;
+	}
+
 	/* PDF specific styles */
 	.viewable.pdf {
 		border: none;
