@@ -3,6 +3,7 @@ import '../demo/demo-image-gallery.js'
 import '../demo/demo-single-image.js'
 import '../demo/demo-mixed-lightbox.js'
 import '../demo/demo-video-lightbox.js'
+import '../demo/demo-iframe-lightbox.js'
 
 export default {
   title: 'Lightbox',
@@ -56,6 +57,19 @@ VideoLightbox.parameters = {
     description: {
       story:
         'A lightbox specifically designed for video content, with autoplay and controls.'
+    }
+  }
+}
+
+export const IframeLightbox = () => {
+  return html`<demo-iframe-lightbox></demo-iframe-lightbox>`
+}
+
+IframeLightbox.parameters = {
+  docs: {
+    description: {
+      story:
+        'A lightbox specifically designed for displaying iframe content, with support for various iframe sources.'
     }
   }
 }

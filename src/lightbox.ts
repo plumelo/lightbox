@@ -24,13 +24,13 @@ const Lightbox = (props: Props) => {
 customElements.define('pion-lightbox', component<Props>(Lightbox))
 
 // Utility function to determine viewable type from filename
-export const viewableType = (filename: string): Viewable['type'] | null => {
+export const viewableType = (filename: string): Viewable['type'] => {
   const ext = filename.split('.').pop()?.toLowerCase()
 
+  if (!ext) return 'iframe'
+
   if (ext === 'pdf') return 'pdf'
-  if (
-    ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'bmp', 'tiff'].includes(ext!)
-  )
+  if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'bmp', 'tiff'].includes(ext))
     return 'image'
   if (
     [
@@ -54,10 +54,10 @@ export const viewableType = (filename: string): Viewable['type'] | null => {
     ].includes(ext!)
   )
     return 'code'
-  if (['mp4', 'webm', 'ogg', 'mov', 'avi', 'mkv', 'wmv', 'flv'].includes(ext!))
+  if (['mp4', 'webm', 'ogg', 'mov', 'avi', 'mkv', 'wmv', 'flv'].includes(ext))
     return 'video'
-  // Default to 'image' or another valid Viewable['type'] value
-  return null
+
+  return 'iframe' // Default to iframe for unknown types
 }
 
 // Factory function to create a lightbox instance

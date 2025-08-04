@@ -163,6 +163,15 @@ export default css`
     width: 100%;
   }
 
+  /* Iframe specific styles */
+  .viewable.iframe {
+    border: none;
+    border-radius: 4px;
+    background: white;
+    height: 100%;
+    width: 100%;
+  }
+
   /* Loading spinner positioning */
   lightbox-spinner {
     position: absolute;

@@ -5,6 +5,7 @@ import { image } from '../components/image'
 import { code } from '../components/code'
 import { pdf } from '../components/pdf'
 import { video } from '../components/video'
+import { iframe } from '../components/iframe'
 import { spinner } from '../components/spinner'
 import { useSlideList } from '@neovici/cosmoz-slider'
 import { useMeta } from '@neovici/cosmoz-utils/hooks/use-meta'
@@ -29,6 +30,8 @@ const render = (
         return code(item)
       case 'video':
         return video(item)
+      case 'iframe':
+        return iframe(item)
       default:
         console.error('Unrecognized viewable type:', (item as any).type)
         return html`<div class="error">Unsupported file type</div>`

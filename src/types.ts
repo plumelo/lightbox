@@ -42,4 +42,20 @@ export interface Video extends ViewableBase {
   poster?: string
 }
 
-export type Viewable = Image | Pdf | Code | Video
+export interface Iframe extends ViewableBase {
+  type: 'iframe'
+  width?: string
+  height?: string
+  sandbox?:
+    | 'allow-forms'
+    | 'allow-modals'
+    | 'allow-pointer-lock'
+    | 'allow-popups'
+    | 'allow-popups-to-escape-sandbox'
+    | 'allow-same-origin'
+    | 'allow-scripts'
+    | 'allow-top-navigation'
+  allowfullscreen?: boolean
+}
+
+export type Viewable = Image | Pdf | Code | Video | Iframe
