@@ -2,6 +2,7 @@ import { html } from '@pionjs/pion'
 import '../demo/demo-image-gallery.js'
 import '../demo/demo-single-image.js'
 import '../demo/demo-mixed-lightbox.js'
+import '../demo/demo-video-lightbox.js'
 
 export default {
   title: 'Lightbox',
@@ -42,6 +43,19 @@ MixedContent.parameters = {
     description: {
       story:
         'A lightbox showcasing different content types: images, pdf and code.'
+    }
+  }
+}
+
+export const VideoLightbox = () => {
+  return html`<demo-video-lightbox></demo-video-lightbox>`
+}
+
+VideoLightbox.parameters = {
+  docs: {
+    description: {
+      story:
+        'A lightbox specifically designed for video content, with autoplay and controls.'
     }
   }
 }

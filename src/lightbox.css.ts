@@ -103,8 +103,6 @@ export default css`
     max-width: 90vw;
     max-height: 90vh;
     transition: opacity 0.3s ease;
-    height: 100%;
-    width: 100%;
   }
 
   .viewable:not([data-loaded]) {
@@ -134,6 +132,8 @@ export default css`
     border-radius: 4px;
     max-width: 80vw;
     max-height: 80vh;
+    height: 100%;
+    width: 100%;
   }
 
   /* Code specific styles */
@@ -154,6 +154,13 @@ export default css`
     margin: 0;
     white-space: pre-wrap;
     word-break: break-word;
+  }
+
+  /* Video specific styles */
+  .viewable.video {
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
   }
 
   /* Loading spinner positioning */

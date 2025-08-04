@@ -34,4 +34,12 @@ export interface Code extends ViewableBase {
   language?: string
 }
 
-export type Viewable = Image | Pdf | Code
+export interface Video extends ViewableBase {
+  type: 'video'
+  autoplay?: boolean
+  controls?: boolean
+  muted?: boolean
+  poster?: string
+}
+
+export type Viewable = Image | Pdf | Code | Video

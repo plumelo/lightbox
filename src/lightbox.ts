@@ -54,6 +54,8 @@ export const viewableType = (filename: string): Viewable['type'] | null => {
     ].includes(ext!)
   )
     return 'code'
+  if (['mp4', 'webm', 'ogg', 'mov', 'avi', 'mkv', 'wmv', 'flv'].includes(ext!))
+    return 'video'
   // Default to 'image' or another valid Viewable['type'] value
   return null
 }
