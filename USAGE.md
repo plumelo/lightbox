@@ -22,70 +22,70 @@ npm install @plumelo/lightbox
 Here's how to get a lightbox up and running in minutes:
 
 ```typescript
-import { html } from 'lit-html';
+import { html } from 'lit-html'
 
 const sampleItems: Viewable[] = [
-	{
-		id: '1',
-		type: 'image',
-		uri: 'https://picsum.photos/800/600?random=1',
-		filename: 'landscape.jpg',
-		title: 'Beautiful landscape',
-	},
-	{
-		id: '2',
-		type: 'image',
-		uri: 'https://picsum.photos/600/800?random=2',
-		filename: 'portrait.jpg',
-		title: 'Portrait shot',
-	},
-	{
-		id: '3',
-		type: 'image',
-		uri: 'https://picsum.photos/600/800?random=3',
-		filename: 'city.jpg',
-		title: 'City skyline',
-	},
-];
+  {
+    id: '1',
+    type: 'image',
+    uri: 'https://picsum.photos/800/600?random=1',
+    filename: 'landscape.jpg',
+    title: 'Beautiful landscape'
+  },
+  {
+    id: '2',
+    type: 'image',
+    uri: 'https://picsum.photos/600/800?random=2',
+    filename: 'portrait.jpg',
+    title: 'Portrait shot'
+  },
+  {
+    id: '3',
+    type: 'image',
+    uri: 'https://picsum.photos/600/800?random=3',
+    filename: 'city.jpg',
+    title: 'City skyline'
+  }
+]
 
 const handleClose = () => {
-	console.log('Lightbox closed');
-	// Your cleanup logic here
-};
+  console.log('Lightbox closed')
+  // Your cleanup logic here
+}
 
 html`<pion-lightbox
-	.items=${sampleItems}
-	.selected=${0}
-	.close=${handleClose}
-></pion-lightbox>`;
+  .items=${sampleItems}
+  .selected=${0}
+  .close=${handleClose}
+></pion-lightbox>`
 ```
 
 ```typescript
-import { lightbox, type Viewable } from '@plumelo/lightbox';
+import { lightbox, type Viewable } from '@plumelo/lightbox'
 
 const items: Viewable[] = [
-	{
-		id: '1',
-		type: 'image',
-		uri: 'path/to/image.jpg',
-		filename: 'image.jpg',
-		title: 'My Image',
-	},
-];
+  {
+    id: '1',
+    type: 'image',
+    uri: 'path/to/image.jpg',
+    filename: 'image.jpg',
+    title: 'My Image'
+  }
+]
 
 const handleClose = () => {
-	console.log('Lightbox closed');
-	// Your cleanup logic here
-};
+  console.log('Lightbox closed')
+  // Your cleanup logic here
+}
 
 // Create and show the lightbox
 const lightboxComponent = lightbox({
-	items,
-	selected: 0, // Start with the first item
-	close: handleClose,
-});
+  items,
+  selected: 0, // Start with the first item
+  close: handleClose
+})
 
-document.body.appendChild(lightboxComponent);
+document.body.appendChild(lightboxComponent)
 ```
 
 ## Content types
@@ -173,9 +173,9 @@ Make the lightbox match your design system:
 
 ```css
 pion-lightbox {
-	--lightbox-background: rgba(0, 0, 0, 0.9);
-	--lightbox-close-color: white;
-	--lightbox-nav-color: white;
-	--lightbox-nav-background: rgba(255, 255, 255, 0.1);
+  --lightbox-background: rgba(0, 0, 0, 0.9);
+  --lightbox-close-color: white;
+  --lightbox-nav-color: white;
+  --lightbox-nav-background: rgba(255, 255, 255, 0.1);
 }
 ```

@@ -1,3 +1,3 @@
-export * from './lightbox';
-export * from './types';
-export { viewableType } from './lightbox';
+export * from './lightbox'
+export * from './types'
+export { viewableType } from './lightbox'
