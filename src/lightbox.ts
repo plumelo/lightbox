@@ -8,10 +8,6 @@ const Lightbox = (props: Props) => {
   const { slide, close } = useLightbox(props)
 
   return html`
-    <style>
-      ${styles}
-    </style>
-
     <cosmoz-slider .slide=${slide}></cosmoz-slider>
 
     <button class="close" @click=${close} aria-label="Close lightbox">
@@ -19,6 +15,8 @@ const Lightbox = (props: Props) => {
     </button>
   `
 }
+
+Lightbox.styleSheets = [styles]
 
 // Define the custom element
 customElements.define('pion-lightbox', component<Props>(Lightbox))
