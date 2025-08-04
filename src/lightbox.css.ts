@@ -103,6 +103,8 @@ export default css`
 		max-width: 90vw;
 		max-height: 90vh;
 		transition: opacity 0.3s ease;
+		height: 100%;
+		width: 100%;
 	}
 
 	.viewable:not([data-loaded]) {
