@@ -4,8 +4,8 @@ import type { Viewable, Props } from './types'
 import useLightbox from './hooks/useLightbox'
 import { clearIcon } from './components/icons'
 
-const Lightbox = (props: Props) => {
-  const { slide, close } = useLightbox(props)
+const Lightbox = function (this: HTMLElement, props: Props) {
+  const { slide, close } = useLightbox(props, this)
 
   return html`
     <cosmoz-slider .slide=${slide}></cosmoz-slider>
@@ -16,10 +16,11 @@ const Lightbox = (props: Props) => {
   `
 }
 
-Lightbox.styleSheets = [styles]
-
 // Define the custom element
-customElements.define('pion-lightbox', component<Props>(Lightbox))
+customElements.define(
+  'pion-lightbox',
+  component<Props>(Lightbox, { styleSheets: [styles] })
+)
 
 // Utility function to determine viewable type from filename
 export const viewableType = (filename: string): Viewable['type'] => {

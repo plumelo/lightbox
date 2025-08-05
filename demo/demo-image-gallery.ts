@@ -1,8 +1,11 @@
-import { html, component } from '@pionjs/pion'
+import { html, component, useEffect } from '@pionjs/pion'
+import { ref, createRef } from 'lit-html/directives/ref.js'
 import '../src/index.ts'
 import type { Viewable } from '../src/index.js'
 
 export const ImageGallery = () => {
+  const lightboxRef = createRef<HTMLElement>()
+
   const sampleItems: Viewable[] = [
     {
       id: '1',
@@ -27,9 +30,20 @@ export const ImageGallery = () => {
     }
   ]
 
-  const handleClose = () => {
-    console.log('Lightbox closed from story')
-  }
+  useEffect(() => {
+    const lightboxElement = lightboxRef.value
+    if (!lightboxElement) return
+
+    const handleClose = () => {
+      console.log('Lightbox closed from event listener')
+    }
+
+    lightboxElement.addEventListener('close', handleClose)
+
+    return () => {
+      lightboxElement.removeEventListener('close', handleClose)
+    }
+  }, [])
 
   return html` <style>
       :host {
@@ -45,9 +59,9 @@ export const ImageGallery = () => {
       }
     </style>
     <pion-lightbox
+      ${ref(lightboxRef)}
       .items=${sampleItems}
       .selected=${0}
-      .close=${handleClose}
     ></pion-lightbox>`
 }
 

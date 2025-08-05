@@ -33,6 +33,7 @@ const render = (
       case 'iframe':
         return iframe(item)
       default:
+        // eslint-disable-next-line no-console
         console.error('Unrecognized viewable type:', (item as any).type)
         return html`<div class="error">Unsupported file type</div>`
     }
@@ -60,7 +61,8 @@ const render = (
   </div>`
 }
 
-const useLightbox = ({ items, selected, close }: Props) => {
+const useLightbox = (props: Props, host: HTMLElement) => {
+  const { items, selected, close: closeProp } = props
   const { slide, ...rest } = useSlideList(items, {
     render,
     initial: items[selected ?? 0],
@@ -68,6 +70,11 @@ const useLightbox = ({ items, selected, close }: Props) => {
   })
 
   const meta = useMeta({ ...rest })
+
+  const close = () => {
+    host.dispatchEvent(new CustomEvent('close'))
+    closeProp?.()
+  }
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -77,7 +84,7 @@ const useLightbox = ({ items, selected, close }: Props) => {
       const { key } = e
       switch (key) {
         case 'Escape':
-          close?.()
+          close()
           e.preventDefault()
           break
         case 'Left':
