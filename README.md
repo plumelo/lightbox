@@ -1,2 +1,3 @@
-# lightbox
-A lightbox pionjs component 
+# cosmoz-lightbox
+
+A pionjs lightbox web components
