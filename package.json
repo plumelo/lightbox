@@ -1,10 +1,10 @@
 {
-  "name": "@plumelo/lightbox",
+  "name": "@neovici/lightbox",
   "version": "1.0.0",
   "description": "A lightbox pionjs component",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Plumelo/lightbox.git"
+    "url": "git+https://github.com/Neovici/lightbox.git"
   },
   "keywords": [
     "lit-html",
@@ -13,7 +13,7 @@
   ],
   "author": "",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/Plumelo/lightbox#readme",
+  "homepage": "https://github.com/Neovici/lightbox#readme",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
