@@ -102,7 +102,7 @@ describe('lightbox', () => {
       const el = await fixture(
         html`<pion-lightbox
           .items=${mixedItems}
-          .close=${closeHandler}
+          @close=${closeHandler}
         ></pion-lightbox>`
       )
 

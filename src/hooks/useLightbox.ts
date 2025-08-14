@@ -62,7 +62,7 @@ const render = (
 }
 
 const useLightbox = (props: Props, host: HTMLElement) => {
-  const { items, selected, close: closeProp } = props
+  const { items, selected } = props
   const { slide, ...rest } = useSlideList(items, {
     render,
     initial: items[selected ?? 0],
@@ -73,7 +73,6 @@ const useLightbox = (props: Props, host: HTMLElement) => {
 
   const close = () => {
     host.dispatchEvent(new CustomEvent('close'))
-    closeProp?.()
   }
 
   useEffect(() => {
