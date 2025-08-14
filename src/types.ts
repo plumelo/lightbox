@@ -1,7 +1,6 @@
 export interface Props {
   items: Viewable[]
   selected?: number
-  close?: () => void
 }
 
 export type Uri = string | Promise<string>

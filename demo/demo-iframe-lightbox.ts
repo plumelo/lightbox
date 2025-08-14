@@ -39,7 +39,7 @@ export const IframeDemo = () => {
     <pion-lightbox
       .items=${iframeItems}
       .selected=${0}
-      .close=${() => console.log('Iframe lightbox closed')}
+      @close=${() => console.log('Iframe lightbox closed')}
     ></pion-lightbox>`
 }
 

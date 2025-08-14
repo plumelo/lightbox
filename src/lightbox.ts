@@ -16,7 +16,6 @@ const Lightbox = function (this: HTMLElement, props: Props) {
   `
 }
 
-// Define the custom element
 customElements.define(
   'pion-lightbox',
   component<Props>(Lightbox, { styleSheets: [styles] })
@@ -59,14 +58,11 @@ export const viewableType = (filename: string): Viewable['type'] => {
   return 'iframe' // Default to iframe for unknown types
 }
 
-// Factory function to create a lightbox instance
 export const lightbox = (props: Props) =>
   html`<pion-lightbox
     .items=${props.items}
     .selected=${props.selected}
-    .close=${props.close}
   ></pion-lightbox>`
 
-// Export types for external use
 export type { Viewable, Image, Pdf, Code } from './types'
 export type LightboxProps = Props

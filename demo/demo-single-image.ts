@@ -28,7 +28,7 @@ export const SingleImage = () => {
     <pion-lightbox
       .items=${singleItem}
       .selected=${0}
-      .close=${() => console.log('Single image lightbox closed')}
+      @close=${() => console.log('Single image lightbox closed')}
     ></pion-lightbox>`
 }
 

@@ -39,7 +39,7 @@ export const VideoDemo = () => {
     <pion-lightbox
       .items=${videoItems}
       .selected=${0}
-      .close=${() => console.log('Video lightbox closed')}
+      @close=${() => console.log('Video lightbox closed')}
     ></pion-lightbox>`
 }
 

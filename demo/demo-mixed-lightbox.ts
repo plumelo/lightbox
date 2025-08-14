@@ -44,7 +44,7 @@ export const MixedContent = () => {
     <pion-lightbox
       .items=${mixedItems}
       .selected=${0}
-      .close=${() => console.log('Mixed content lightbox closed')}
+      @close=${() => console.log('Mixed content lightbox closed')}
     ></pion-lightbox>`
 }
 
